@@ -15,7 +15,7 @@ import java.io.File;
 //https://www.paginegialle.it/ricerca/meccanica/Udine/p-2?mr=50
 public class secondJ{
 
-	public static final String LOCATION = "Roma";
+	public static final String LOCATION = "UD";
 	public static final String SECTOR = "Informatica";
 
 	public static void main(String[] args) throws IOException{
@@ -23,12 +23,12 @@ public class secondJ{
 	for(int i = 1; i< 50 ;i++){
 		Document doc = Jsoup.connect("https://www.paginegialle.it/ricerca/" + SECTOR + "/" + LOCATION + "/p-" + i + "?mr=50").get(); //punto 1
 		
-		Elements dovs = doc.select("section.vcard.listElement");
+		Elements dovs = doc.select("section.list-element");
 	//	System.out.println("!!!!!!!!!!!!!!!!!!!!" + i + "!!!!!!!!!!!!!!!!!!");
 		for(Element el : dovs){
-			String nome = el.select("header h1.fn.itemTitle a").first().text();
-			String web = "";
 			try{
+			String nome = el.select("h2.list-element__title a").first().text();
+			String web = "";
 			//web = el.select("a[title^=sito]").first().attr("href");
 			System.out.println(nome);
 			j++;
