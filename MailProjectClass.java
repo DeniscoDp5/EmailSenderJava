@@ -8,18 +8,18 @@ import javax.mail.internet.*;
 public class MailProjectClass {
 //-----------------------------------------------------------------------------------------------------
                         //MODIFY THOSE PARAMETERS
-    public static final String EMAIL = "gino@gino.com";
-    public static final String EMAIL_OBJECT = "Curriculum vitae di Gino";
-    public static final String CURRICULUM_PATH = "/home/user/Scrivania/CV_Radu_Cebotaru.pdf"; //the pat where your curriculum is
-    public static final String NAME_OF_FILE = "Curriculum Vitae Gino Balducci"; // The name of the file in the attachment of the mail
+    public static final String EMAIL = "denisco.dp5@gmail.com";
+    public static final String EMAIL_OBJECT = "Curriculum vitae di Denis Constantin Petrisor - Allegato leggibile";
+    public static final String CURRICULUM_PATH = "./curriculum/curriculum.pdf"; //the pat where your curriculum is
+    public static final String NAME_OF_FILE = "Curriculum Vitae Denis Constantin Petrisor.pdf"; // The name of the file in the attachment of the mail
     /**
     * To create a new line type \n
     */
-    public static final String EMAIL_BODY_TEXT = "Alla cortese attenzione della/del Responsabile Risorse Umane\n\nMi chiamo Gino Balducci, ho 20 anni e frequento il 1° anno del corso post diploma I.T.S. manutenzione aeronautica al Malignani di Udine.\n\nDopo un lungo periodo lavorativo nel campo dei service teatrali ho deciso di cambiare e di avvicinarmi di più al settore nel quale pratico gli studi.\n\nCome studente ho realizzato vari progetti utilizzando diverse lavorazioni meccaniche.\n\nAttualmente sono alla ricerca di un opportunità lavorativa nella quale io possa dare le mie conoscenze attuali ed il mio desiderio di imparare ai fini della mission aziendale e di una crescita professionale personale.\n\nRingrazio molto per l'attenzione e sono disponibile ";
+    public static final String EMAIL_BODY_TEXT = "Alla cortese attenzione della/del Responsabile Risorse Umane\n\nBuongiorno\n\nSono Denis Constantin Petrisor e ho trovato il vostro contatto online e vi scrivo per candidarmi come programmatore.\nHo esperienza nella programmazione (Javascript/ HTML/ CSS / ExtJS), utilizzo di chiamate REST, versionamento del codice GIT.\nAllego il mio curriculm aggiornato con un elenco più completo.\n\nIl mio desiderio è entrare in un'azienda che abbia come stack tecnologico uno o più dei seguenti:\nReact, Next.js, Redux, GraphQL per poter fare esperienza e mettere a disposione quella già in mio possesso.\n\nLascio anche il mio profilo Linkedin https://www.linkedin.com/in/denis-petrisor-bb6921100/\n\nNel caso di un riscontro positivo potete rispondere a questa mail o contattarmi in uno dei recapiti lasciati nel curriculum.\n\nVi auguro buona giornata.\n- Denis Constantin Petrisor\n";
 //----------------------------------------------------------------------------------------------------
 
 	public MailProjectClass(){
-		
+        
 	}
 public static Session init(String email,String passw){
 
@@ -65,7 +65,7 @@ public static void sendMail(Session session, String dest) {
         DataSource source = new FileDataSource(file);
         messageBodyPart.setDataHandler(new DataHandler(source));
         messageBodyPart.setFileName(fileName);
-        messageBodyPart.addHeader("Content-Type", "application/pdf");
+        messageBodyPart.addHeader("Content-Type", "application/octet-stream");
         
         
         multipart.addBodyPart(messageBodyPart);

@@ -15,19 +15,19 @@ import java.io.File;
 //https://www.paginegialle.it/ricerca/meccanica/Udine/p-2?mr=50
 public class secondJ{
 
-	public static final String LOCATION = "UD";
-	public static final String SECTOR = "Informatica";
+	public static final String LOCATION = "Liguria";
+	public static final String SECTOR = "Alberghi";
 
 	public static void main(String[] args) throws IOException{
 	int j=1;
 	for(int i = 1; i< 50 ;i++){
-		Document doc = Jsoup.connect("https://www.paginegialle.it/ricerca/" + SECTOR + "/" + LOCATION + "/p-" + i + "?mr=50").get(); //punto 1
+		Document doc = Jsoup.connect("https://www.paginegialle.it/ricerca/" + SECTOR + "/" + LOCATION + "/p-" + i + "?suggest=false&mr=50").get(); //punto 1
 		
-		Elements dovs = doc.select("section.list-element");
+		Elements dovs = doc.select("div.search-itm");
 	//	System.out.println("!!!!!!!!!!!!!!!!!!!!" + i + "!!!!!!!!!!!!!!!!!!");
 		for(Element el : dovs){
 			try{
-			String nome = el.select("h2.list-element__title a").first().text();
+			String nome = el.select("h2.search-itm__rag a").first().text();
 			String web = "";
 			//web = el.select("a[title^=sito]").first().attr("href");
 			System.out.println(nome);
